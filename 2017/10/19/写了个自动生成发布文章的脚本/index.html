@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>写了个自动生成发布文章的脚本 | PotNote -&gt; Cooking...</title>
+  <meta name="author" content="Ivan Dart">
+
+  
+  <meta name="description" content="potNote.tk">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="PotNote -&gt; Cooking..." type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <header id="header" class="inner"><nav>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+  <div id="content" class="inner"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <header>
+    
+  
+    <h1 class="title">写了个自动生成发布文章的脚本</h1>
+  
+
+    <time datetime="2017-10-18T22:02:40.000Z">
+  <span class="day">19</span><span class="month">Oct</span>
+</time>
+  </header>
+  <div class="entry-content">
+    
+      <p>纯粹偷懒，windows下的ssh-agent有毒，git bash里每次都要重新把publickey添加一遍才能连。。。</p>
+<p>然后也懒得想为啥会这样就写了个自动添加公钥然后自动生成和部署的脚本，测试下来感觉还行。</p>
+<p>欢迎各位来吐槽我的渣渣shellscript（点击Read More查看代码）</p>
+<a id="more"></a>
+<p><em>hexoDeploy.sh</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">eval `ssh-agent`</div><div class="line">ssh-add ~/.ssh/git_rsa_1</div><div class="line">ori=$&#123;pwd&#125;</div><div class="line">sshAdd=&quot;&quot;</div><div class="line">hexoOutput=&quot;&quot;</div><div class="line">ssh-add -l &gt; sshAdd</div><div class="line">echo $&#123;sshAdd&#125;</div><div class="line">cd /d/Git/PotNote-structure</div><div class="line">hexo generate &gt; hexoOutput</div><div class="line">echo $&#123;hexoOutput&#125;</div><div class="line">hexo deploy &gt; hexoOutput</div><div class="line">echo $&#123;hexoOutput&#125;</div><div class="line">cd $&#123;ori&#125;</div></pre></td></tr></table></figure></p>
+<p>然后觉得每次运行的时候要打source+脚本文件名也很麻烦就又写了个脚本来在父进程中执行这个脚本</p>
+<p><em>runHexoDeploy.sh</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ./hexoDeploy.sh</div></pre></td></tr></table></figure></p>
+
+    
+    
+    <footer class="meta">
+      
+  <div class="cats">
+<a href="/categories/日志/">日志</a></div>
+
+      
+  <div class="tags">
+<a href="/tags/随笔/">随笔</a></div>
+
+      
+    </footer>
+    
+  </div>
+  
+</article></div>
+  <footer id="footer" class="inner"><div class="social alignright">
+  
+  
+  
+  
+  <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+</div>
+<p>
+  
+  &copy; 2017 Ivan Dart
+  
+</p>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id="phasebeam">
+  <canvas></canvas>
+  <canvas></canvas>
+  <canvas></canvas>
+</div>
+<script src="/js/phasebeam.js"></script>
+</body>
+</html>
