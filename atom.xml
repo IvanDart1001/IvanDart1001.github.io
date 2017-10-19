@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PotNote -&gt; Cooking...</title>
+  
+  <subtitle>我的代码是要突破天际的啊！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://potnote.tk/"/>
+  <updated>2017-10-18T22:12:28.615Z</updated>
+  <id>http://potnote.tk/</id>
+  
+  <author>
+    <name>Ivan Dart</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写了个自动生成发布文章的脚本</title>
+    <link href="http://potnote.tk/2017/10/19/%E5%86%99%E4%BA%86%E4%B8%AA%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E7%9A%84%E8%84%9A%E6%9C%AC/"/>
+    <id>http://potnote.tk/2017/10/19/写了个自动生成发布文章的脚本/</id>
+    <published>2017-10-18T22:02:40.000Z</published>
+    <updated>2017-10-18T22:12:28.615Z</updated>
+    
+    <content type="html"><![CDATA[<p>纯粹偷懒，windows下的ssh-agent有毒，git bash里每次都要重新把publickey添加一遍才能连。。。</p><p>然后也懒得想为啥会这样就写了个自动添加公钥然后自动生成和部署的脚本，测试下来感觉还行。</p><p>欢迎各位来吐槽我的渣渣shellscript（点击Read More查看代码）</p><a id="more"></a><p><em>hexoDeploy.sh</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">eval `ssh-agent`</div><div class="line">ssh-add ~/.ssh/git_rsa_1</div><div class="line">ori=$&#123;pwd&#125;</div><div class="line">sshAdd=&quot;&quot;</div><div class="line">hexoOutput=&quot;&quot;</div><div class="line">ssh-add -l &gt; sshAdd</div><div class="line">echo $&#123;sshAdd&#125;</div><div class="line">cd /d/Git/PotNote-structure</div><div class="line">hexo generate &gt; hexoOutput</div><div class="line">echo $&#123;hexoOutput&#125;</div><div class="line">hexo deploy &gt; hexoOutput</div><div class="line">echo $&#123;hexoOutput&#125;</div><div class="line">cd $&#123;ori&#125;</div></pre></td></tr></table></figure></p><p>然后觉得每次运行的时候要打source+脚本文件名也很麻烦就又写了个脚本来在父进程中执行这个脚本</p><p><em>runHexoDeploy.sh</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source ./hexoDeploy.sh</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;纯粹偷懒，windows下的ssh-agent有毒，git bash里每次都要重新把publickey添加一遍才能连。。。&lt;/p&gt;
+&lt;p&gt;然后也懒得想为啥会这样就写了个自动添加公钥然后自动生成和部署的脚本，测试下来感觉还行。&lt;/p&gt;
+&lt;p&gt;欢迎各位来吐槽我的渣渣shellscript（点击Read More查看代码）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="日志" scheme="http://potnote.tk/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="随笔" scheme="http://potnote.tk/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://potnote.tk/2017/10/19/hello-world/"/>
+    <id>http://potnote.tk/2017/10/19/hello-world/</id>
+    <published>2017-10-18T20:52:23.226Z</published>
+    <updated>2017-10-18T20:52:23.228Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人类的一小步</title>
+    <link href="http://potnote.tk/2017/10/19/%E4%BA%BA%E7%B1%BB%E7%9A%84%E4%B8%80%E5%B0%8F%E6%AD%A5/"/>
+    <id>http://potnote.tk/2017/10/19/人类的一小步/</id>
+    <published>2017-10-18T19:44:08.000Z</published>
+    <updated>2017-10-18T20:43:07.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>重新部署了一下博客，感觉以后可以写点学习笔记或者发发牢骚啥的</p><p>就这样吧，Hello World。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;重新部署了一下博客，感觉以后可以写点学习笔记或者发发牢骚啥的&lt;/p&gt;
+&lt;p&gt;就这样吧，Hello World。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="日志" scheme="http://potnote.tk/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="随笔" scheme="http://potnote.tk/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>
