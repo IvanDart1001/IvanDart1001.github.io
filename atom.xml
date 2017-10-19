@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://potnote.tk/"/>
-  <updated>2017-10-18T22:12:28.615Z</updated>
+  <updated>2017-10-19T17:24:16.928Z</updated>
   <id>http://potnote.tk/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Typescript命名空间（如果你觉得真的必要的话</title>
+    <link href="http://potnote.tk/2017/10/20/%E4%BD%BF%E7%94%A8Typescript%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%88%E5%A6%82%E6%9E%9C%E4%BD%A0%E8%A7%89%E5%BE%97%E7%9C%9F%E7%9A%84%E5%BF%85%E8%A6%81%E7%9A%84%E8%AF%9D/"/>
+    <id>http://potnote.tk/2017/10/20/使用Typescript命名空间（一）（如果你觉得真的必要的话/</id>
+    <published>2017-10-19T16:54:16.000Z</published>
+    <updated>2017-10-19T17:24:16.928Z</updated>
+    
+    <content type="html"><![CDATA[<p>开发复杂业务逻辑时，你自己写的变量名和同事的写的变量名起冲突了？想把内部模块中不同的细节部分从代码逻辑上分开？只是有强迫症？（今天来挖一挖Typescript的<em>Type</em>)<br><a id="more"></a><br>我认为命名空间这一概念顾名思义就是考虑到名字在不同环境下是代表着不同东西这一可能情况而被定义的。</p><p>比方说一村的门卫是个30岁的大叔经常被人叫做老王，二村的门卫是个40岁的大叔正巧也姓王，也被人叫做老王。</p><p>虽然他们都叫老王，但是他们是不同的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">interface Human &#123;</div><div class="line">village: string;</div><div class="line">&#125;</div><div class="line"></div><div class="line">namespace firstVillage &#123;</div><div class="line">export var oldWang : Human;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// ↑ which is different from ↓</div><div class="line"></div><div class="line">namespace secondVillage &#123;</div><div class="line">export var oldWang : Human;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>但是使用命名空间的时候，请遵循以下几个准则：<br>1.把逻辑相关联的对象和类型分在同一个命名空间里。<br>2.只在内部模块中使用命名空间来规避名称冲突的风险。（在外部模块中产生名称冲突只能说明设计者脑子有坑）这里有个小故事可以给大家看看：（摘自<a href="http://stackoverflow.com/questions/30357634/how-do-i-use-namespaces-with-typescript-external-modules" target="_blank" rel="external">http://stackoverflow.com/questions/30357634/how-do-i-use-namespaces-with-typescript-external-modules</a></p><p><em>Your friend Bob calls you up. “I have a great new organization scheme in my house”, he says, “come check it out!”. Neat, let’s go see what Bob has come up with.</em></p><p><em>You start in the kitchen and open up the pantry. There are 60 different boxes, each labelled “Pantry”. You pick a box at random and open it. Inside is a single box labelled “Grains”. You open up the “Grains” box and find a single box labelled “Pasta”. You open the “Pasta” box and find a single box labelled “Penne”. You open this box and find, as you expect, a bag of penne pasta.</em></p><p><em>Slightly confused, you pick up an adjacent box, also labelled “Pantry”. Inside is a single box, again labelled “Grains”. You open up the “Grains” box and, again, find a single box labelled “Pasta”. You open the “Pasta” box and find a single box, this one is labelled “Rigatoni”. You open this box and find… a bag of rigatoni pasta.</em></p><p><em>“It’s great!” says Bob. “Everything is in a namespace!”.</em></p><p><em>“But Bob…” you reply. “Your organization scheme is useless. You have to open up a bunch of boxes to get to anything, and it’s not actually any more convenient to find anything than if you had just put everything in one box instead of three. In fact, since your pantry is already sorted shelf-by-shelf, you don’t need the boxes at all. Why not just set the pasta on the shelf and pick it up when you need it?”</em></p><p><em>“You don’t understand — I need to make sure that no one else puts something that doesn’t belong in the ‘Pantry’ namespace. And I’ve safely organized all my pasta into the Pantry.Grains.Pasta namespace so I can easily find it”</em></p><p><em>Bob is a very confused man.</em></p><p>后续博文会更些更详细的关于ts类型特性的挖掘（看心情）</p><p>欢迎大家在下方评论区讨论（看不见建议先翻墙，disqus好像有时会连不上）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开发复杂业务逻辑时，你自己写的变量名和同事的写的变量名起冲突了？想把内部模块中不同的细节部分从代码逻辑上分开？只是有强迫症？（今天来挖一挖Typescript的&lt;em&gt;Type&lt;/em&gt;)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="http://potnote.tk/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Typescript" scheme="http://potnote.tk/tags/Typescript/"/>
+    
+  </entry>
   
   <entry>
     <title>写了个自动生成发布文章的脚本</title>
