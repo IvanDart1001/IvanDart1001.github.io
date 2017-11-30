@@ -50,11 +50,11 @@ strong {
 .inner {
   margin: 0 auto;
   position: relative;
-  width: 1000px;
+  width: 1200px;
   z-index: 0;
 }
 #header {
-  height: 70px;
+  overflow: hidden;
   padding: 50px 0;
 }
 #header nav {

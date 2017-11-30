@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://potnote.tk/"/>
-  <updated>2017-10-19T17:24:16.928Z</updated>
+  <updated>2017-11-30T20:22:48.897Z</updated>
   <id>http://potnote.tk/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牢骚灌水区（可在底部disqus评论系统中盖楼</title>
+    <link href="http://potnote.tk/2017/12/01/%E7%89%A2%E9%AA%9A%E7%81%8C%E6%B0%B4%E5%8C%BA%EF%BC%88%E5%8F%AF%E5%9C%A8%E5%BA%95%E9%83%A8disqus%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9B%96%E6%A5%BC/"/>
+    <id>http://potnote.tk/2017/12/01/牢骚灌水区（可在底部disqus评论系统中盖楼/</id>
+    <published>2017-11-30T20:20:28.000Z</published>
+    <updated>2017-11-30T20:22:48.897Z</updated>
+    
+    <content type="html"><![CDATA[<p>人闲下来的时候，发牢骚的时候，感到后悔的时候，失落失望的时候才能感受到自己蠢在哪里。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;人闲下来的时候，发牢骚的时候，感到后悔的时候，失落失望的时候才能感受到自己蠢在哪里。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="水楼" scheme="http://potnote.tk/categories/%E6%B0%B4%E6%A5%BC/"/>
+    
+    
+      <category term="牢骚" scheme="http://potnote.tk/tags/%E7%89%A2%E9%AA%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Typescript命名空间（如果你觉得真的必要的话</title>
